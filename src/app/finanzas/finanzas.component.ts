@@ -9,6 +9,7 @@ import { MatTableDataSource, MatSort } from '@angular/material';
 })
 export class FinanzasComponent implements OnInit {
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  headers = ['nº', 'Nombre', 'Peso', 'Símbolo'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatSort) sort: MatSort;
