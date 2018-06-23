@@ -10,7 +10,13 @@ import { LogoutComponent } from './logout/logout.component';
 import { FinanzasComponent } from './finanzas/finanzas.component';
 import { DemoMaterialModule } from './util/demo.material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BccDatatableComponent } from './components/bcc-datatable/bcc-datatable.component';
+import { BccLabelComponent } from './components/bcc-label/bcc-label.component';
+import { UserLoguedComponent } from './user-logued/user-logued.component';
+import { BccAbstractComponent } from './components/bcc-abstract/bcc-abstract.component';
 
+
+// this.constructor.name para sacar el nombre de la clase para hacer el path
 const appRoutes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'finanzas', component: FinanzasComponent }
@@ -21,7 +27,11 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LogoutComponent,
-    FinanzasComponent
+    FinanzasComponent,
+    BccDatatableComponent,
+    BccLabelComponent,
+    UserLoguedComponent,
+    BccAbstractComponent
   ],
   imports: [
     RouterModule.forRoot(
