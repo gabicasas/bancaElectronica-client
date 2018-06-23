@@ -8,6 +8,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { LogoutComponent } from './logout/logout.component';
 import { FinanzasComponent } from './finanzas/finanzas.component';
+import { DemoMaterialModule } from './util/demo.material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   { path: 'logout', component: LogoutComponent },
@@ -27,6 +29,8 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
+    DemoMaterialModule, // Tiene que ir despues de BrowserModule
+    BrowserAnimationsModule,
     HttpClientModule
   ],
   providers: [FujitsuRequesterService],
