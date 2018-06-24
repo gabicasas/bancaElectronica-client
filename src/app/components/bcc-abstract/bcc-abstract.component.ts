@@ -11,7 +11,9 @@ import { FujitsuRequesterService } from '../../services/fujitsu-requester.servic
 export class BccAbstractComponent implements OnInit {
 
   public data = undefined;
-  constructor(private requester: FujitsuRequesterService) {  }
+  constructor(private requester: FujitsuRequesterService) {
+    console.log(this.constructor.name);
+   }
 
   ngOnInit() {
     this.data = this.requester.getData();

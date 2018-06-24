@@ -27,7 +27,8 @@ body.set('password', password);*/
      this.http.post(this.endpoint, body.toString(), {headers: myheader}).subscribe((data: FlowNode) => {
       console.log(data);
       this.data = data.data;
-      this.router.navigate(['/'+ data.idNode]);
+      this.router.navigate(['/' + data.idNode]);
+
 
     });
   }

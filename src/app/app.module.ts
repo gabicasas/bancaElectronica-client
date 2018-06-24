@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
     BrowserModule,
     DemoMaterialModule, // Tiene que ir despues de BrowserModule
@@ -46,4 +46,5 @@ const appRoutes: Routes = [
   providers: [FujitsuRequesterService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

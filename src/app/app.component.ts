@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FujitsuRequesterService } from './services/fujitsu-requester.service';
+import { AppModule } from './app.module';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ export class AppComponent {
   title = 'app';
 
 
-  constructor(private requester: FujitsuRequesterService) { }
+  constructor(private requester: FujitsuRequesterService) {
+   }
 
 
   clickBoton() {
