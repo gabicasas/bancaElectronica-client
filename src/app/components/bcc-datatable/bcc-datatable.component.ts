@@ -7,16 +7,19 @@ import { MatSort, MatTableDataSource } from '@angular/material';
   templateUrl: './bcc-datatable.component.html',
   styleUrls: ['./bcc-datatable.component.css']
 })
-export class BccDatatableComponent /*implements OnInit*/ {
+export class BccDatatableComponent implements OnInit {
   
   definedColumns = ['name', 'weight', 'symbol', 'position'];
   columnsToDisplay = this.definedColumns.slice();
-  // tslint:disable-next-line:no-input-rename
+ 
+
   @Input('dataset')
   set dataset(data: any[]) {
     this.datasource = data;
     this.changeDetectorRefs.detectChanges();
+    this.dataSourceObj = new MatTableDataSource(this.datasource);
     console.log(this.datasource);
+    this.dataSourceObj.sort = this.sort;
   }
 
   get dataset(): any[] { return this.datasource; }
@@ -32,6 +35,15 @@ export class BccDatatableComponent /*implements OnInit*/ {
     {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
     {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
   ];
+
+
+  @ViewChild(MatSort) sort: MatSort;
+
+  dataSourceObj = new MatTableDataSource(this.datasource);
+  ngOnInit() {
+
+    this.dataSourceObj.sort = this.sort;
+  }
 
   constructor(private changeDetectorRefs: ChangeDetectorRef) {}
 
