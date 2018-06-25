@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ChangeDetectorRef } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
@@ -8,9 +8,19 @@ import { MatSort, MatTableDataSource } from '@angular/material';
   styleUrls: ['./bcc-datatable.component.css']
 })
 export class BccDatatableComponent /*implements OnInit*/ {
+  
   definedColumns = ['name', 'weight', 'symbol', 'position'];
   columnsToDisplay = this.definedColumns.slice();
-  data: any[] = [
+  // tslint:disable-next-line:no-input-rename
+  @Input('dataset')
+  set dataset(data: any[]) {
+    this.datasource = data;
+    this.changeDetectorRefs.detectChanges();
+    console.log(this.datasource);
+  }
+
+  get dataset(): any[] { return this.datasource; }
+  datasource: any[] = [
     {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
     {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
     {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
@@ -23,29 +33,7 @@ export class BccDatatableComponent /*implements OnInit*/ {
     {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
   ];
 
-  addColumn() {
-    const randomColumn = Math.floor(Math.random() * this.definedColumns.length);
-    this.columnsToDisplay.push(this.definedColumns[randomColumn]);
-  }
-
-  removeColumn() {
-    if (this.columnsToDisplay.length) {
-      this.columnsToDisplay.pop();
-    }
-  }
-
-  shuffle() {
-    let currentIndex = this.columnsToDisplay.length;
-    while (0 !== currentIndex) {
-      const randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // Swap
-      const temp = this.columnsToDisplay[currentIndex];
-      this.columnsToDisplay[currentIndex] = this.columnsToDisplay[randomIndex];
-      this.columnsToDisplay[randomIndex] = temp;
-    }
-  }
+  constructor(private changeDetectorRefs: ChangeDetectorRef) {}
 
 }
 
