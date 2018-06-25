@@ -1,6 +1,6 @@
 {
     "/": {
-      "target": "http://localhost:8080/bancaElectronica",
+      "target": "http://localhost:8080/ebanca",
       "secure": false
     }
   }

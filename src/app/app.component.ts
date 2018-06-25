@@ -8,7 +8,7 @@ import { AppModule } from './app.module';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+ 
 
 
   constructor(private requester: FujitsuRequesterService) {
