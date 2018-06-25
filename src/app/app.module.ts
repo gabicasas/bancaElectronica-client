@@ -14,6 +14,8 @@ import { BccDatatableComponent } from './components/bcc-datatable/bcc-datatable.
 import { BccLabelComponent } from './components/bcc-label/bcc-label.component';
 import { UserLoguedComponent } from './user-logued/user-logued.component';
 import { BccAbstractComponent } from './components/bcc-abstract/bcc-abstract.component';
+import { RuntimeContentComponent } from './runtime-content/runtime-content.component';
+import { FormsModule } from '@angular/forms';
 
 
 // this.constructor.name para sacar el nombre de la clase para hacer el path
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     BccDatatableComponent,
     BccLabelComponent,
     UserLoguedComponent,
-    BccAbstractComponent
+    BccAbstractComponent,
+    RuntimeContentComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -39,6 +42,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     ),
     BrowserModule,
+    FormsModule,
     DemoMaterialModule, // Tiene que ir despues de BrowserModule
     BrowserAnimationsModule,
     HttpClientModule
